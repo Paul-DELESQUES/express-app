@@ -15,15 +15,15 @@ describe("GET /api/movies", () => {
 
 describe("GET /api/movies/:id", () => {
   it("should return a specific movie when a valid ID", async () => {
-    const response = await request(app).get("/api/movies/1"); // Change the ID as needed
+    const response = await request(app).get("/api/movies/1");
 
     expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.status).toEqual(200);
-    expect(response.body.id).toEqual(1); // Check if the returned movie ID matches the requested ID
+    expect(response.body.id).toEqual(1);
   });
 
   it("should return 404 Not Found", async () => {
-    const response = await request(app).get("/api/movies/0"); // Use an ID that does not exist
+    const response = await request(app).get("/api/movies/0");
 
     expect(response.status).toEqual(404);
   });
